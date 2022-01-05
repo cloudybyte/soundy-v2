@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  lavalink:
+    image: fredboat/lavalink:master
+    expose:
+      - 2333
+    volumes:
+      - "./lavalink-config.yml:/opt/Lavalink/application.yml"
+  soundy:
+    image: 75781/soundy-v2
+    environment:
+      - DISCORD_TOKEN=YOURTOKEN
+    depends_on:
+      - lavalink
